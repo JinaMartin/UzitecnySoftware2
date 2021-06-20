@@ -1,0 +1,60 @@
+﻿<Window x:Class="WpfApp1.EditItem"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="EditItem" Height="200" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.5*"/>
+
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Grid.Column="0">
+            <Label Content="Název:"/>
+            <TextBox x:Name="tb_name" Text="{Binding Name,UpdateSourceTrigger=PropertyChanged}" Margin="20, 0" TextChanged="TextBox_TextChanged"/>
+        </StackPanel>
+        <StackPanel Grid.Row="0" Grid.Column="1">
+            <Label Content="Typ:"/>
+            <ComboBox Text="{Binding Type}" Margin="20, 0">
+                <ComboBoxItem Content="Ovoce"/>
+                <ComboBoxItem Content="Zelenina"/>
+                <ComboBoxItem Content="Maso"/>
+                <ComboBoxItem Content="Mléčný výrobek"/>
+                <ComboBoxItem Content="Ovoce"/>
+                <ComboBoxItem Content="Sladkosti"/>
+                <ComboBoxItem Content="Pečivo"/>
+                <ComboBoxItem Content="Mražené potraviny"/>
+                <ComboBoxItem Content="Nápoje"/>
+                <ComboBoxItem Content="Alkoholické nápoje"/>
+                <ComboBoxItem Content="Jiné"/>
+            </ComboBox>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="0">
+            <Label Content="Počet:"/>
+            <ComboBox x:Name="c_amount" Text="{Binding Amount}" Margin="20, 0"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="1">
+            <Label Content="Jednotka:"/>
+            <ComboBox  Text="{Binding Unit}" Margin="20, 0">
+                <ComboBoxItem Content="ks"/>
+                <ComboBoxItem Content="kg"/>
+                <ComboBoxItem Content="dkg"/>
+                <ComboBoxItem Content="g"/>
+                <ComboBoxItem Content="balení"/>
+                <ComboBoxItem Content="l"/>
+                <ComboBoxItem Content="ml"/>
+            </ComboBox>
+        </StackPanel>
+        <Button x:Name="b_Edit" Content="Upravit" Grid.Row="2" Grid.Column="1" Click="b_Edit_Click"/>
+        <Button x:Name="b_Delete" Content="Zpět" Grid.Row="2" Click="b_Delete_Click"/>
+    </Grid>
+</Window>
